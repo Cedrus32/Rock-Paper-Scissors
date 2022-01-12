@@ -6,27 +6,32 @@
 //computer choice -- WORKING
 function computerPlay() {
     let choice = Math.floor(Math.random() * 3);
+    // console.log(choice)
     return choice;
 }
-let computerChoice = computerPlay();
+let computerInput = computerPlay();
+switch (computerInput) {
+    case 0:
+        computerChoice = "rock";
+        break;
+    case 1:
+        computerChoice = "paper";
+        break;
+    case 2:
+        computerChoice = "scissors";
+}
+// console.log(computerChoice)
 
 //player selection -- WORKING
+let playerChoice;
 let playerInput = prompt("Rock, Paper, or Scissors?");
+// console.log(playerInput)
 if (playerInput === null) {
     alert('You\'ve quit the game.');
 } else {
-    let playerInput_lc = playerInput.toLowerCase();
-    switch (playerInput_lc) {
-        case 'rock':
-            playerChoice = 0;
-            break;
-        case 'paper':
-            playerChoice = 1;
-            break;
-        case 'scissors':
-            playerChoice = 2;
-    }
+    playerChoice = playerInput.toLowerCase();
 }
+// console.log(playerChoice)
 
 //play round
 function playRound(computerSelection, playerSelection) {
