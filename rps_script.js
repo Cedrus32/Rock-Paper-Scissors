@@ -9,3 +9,21 @@ function computerPlay() {
     return choice;
 }
 let computerChoice = computerPlay();
+
+//player selection -- WORKING
+let playerInput = prompt("Rock, Paper, or Scissors?");
+if (playerInput === null) {
+    alert('You\'ve quit the game.');
+} else {
+    let playerInput_lc = playerInput.toLowerCase();
+    switch (playerInput_lc) {
+        case 'rock':
+            playerChoice = 0;
+            break;
+        case 'paper':
+            playerChoice = 1;
+            break;
+        case 'scissors':
+            playerChoice = 2;
+    }
+}
