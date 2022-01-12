@@ -34,8 +34,24 @@ if (playerInput === null) {
 // console.log(playerChoice)
 
 //play round
+let computerScore = 0;
+let playerScore = 0;
 function playRound(computerSelection, playerSelection) {
-    //compare computer/player choices
+    if (computerSelection === playerSelection) {
+        alert('It\'s a tie!');
+    } else if (computerSelection === 'rock' && playerSelection === 'paper') {
+        //player wins
+    } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
+        //computer wins
+    } else if (computerSelection === 'paper' && playerSelection === 'rock') {
+        //computer wins
+    } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
+        //player wins
+    } else if (computerSelection === 'scissors' && playerSelection === 'rock') {
+        //player wins
+    } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
+        //computer wins
+    }
     //decide who wins the round
     //declare winner
 }
