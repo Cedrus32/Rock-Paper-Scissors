@@ -27,3 +27,10 @@ if (playerInput === null) {
             playerChoice = 2;
     }
 }
+
+//play round
+function playRound(computerSelection, playerSelection) {
+    //compare computer/player choices
+    //decide who wins the round
+    //declare winner
+}
