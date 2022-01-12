@@ -39,19 +39,34 @@ let playerScore = 0;
 function playRound(computerSelection, playerSelection) {
     if (computerSelection === playerSelection) {
         alert('It\'s a tie!');
-    } else if (computerSelection === 'rock' && playerSelection === 'paper') {
-        //player wins
-    } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
-        //computer wins
-    } else if (computerSelection === 'paper' && playerSelection === 'rock') {
-        //computer wins
-    } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
-        //player wins
-    } else if (computerSelection === 'scissors' && playerSelection === 'rock') {
-        //player wins
-    } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
-        //computer wins
+    } else if (computerSelection === 'rock') {
+        if (playerSelection === 'paper') {
+            playerScore += 1;
+            alert('You win this round! =D');
+        } else if (playerSelection === 'scissors') {
+            computerScore += 1;
+            alert('Computer wins this round. =(');
+        }
+    } else if (computerSelection === 'paper') {
+        if (playerSelection === 'rock') {
+            computerScore += 1;
+            alert('Computer wins this round. =(');
+        } else if (playerSelection === 'scissors') {
+            playerScore += 1;
+            alert('You win this round!');
+        }
+    } else if (computerSelection === 'scissors') {
+        if (playerSelection === 'rock') {
+            playerScore += 1;
+            alert('You win this round!');
+        } else if (playerSelection === 'paper') {
+            computerScore += 1;
+            alert('Computer wins this round. =(');
+        }
     }
-    //decide who wins the round
-    //declare winner
+    // console.log(computerScore)
+    // console.log(playerScore)
 }
+
+//main script
+let round = playRound(computerChoice, playerChoice);
