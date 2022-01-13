@@ -1,4 +1,4 @@
-//computer choice -- WORKING
+//computer choice
 let computerChoice;
 function getComputerChoice() {
     let computerInput = Math.floor(Math.random() * 3);
@@ -13,7 +13,7 @@ function getComputerChoice() {
         case 2:
             computerChoice = "scissors";
     }
-    console.log(computerChoice)
+    console.log(computerChoice);
     return computerChoice;
 }
 
@@ -33,11 +33,11 @@ function getPlayerChoice() {
             prompt("Rock, Paper, or Scissors?");
         }
     }
-    console.log(playerChoice)
+    console.log(playerChoice);
     return playerChoice;
 }
 
-//play round -- WORKING
+//play round
 let computerScore = 0;
 let playerScore = 0;
 function playRound(computerSelection, playerSelection) {
@@ -68,12 +68,12 @@ function playRound(computerSelection, playerSelection) {
             alert('Computer wins this round. =(');
         }
     }
-    console.log(computerScore)
-    console.log(playerScore)
+    console.log(computerScore);
+    console.log(playerScore);
     return computerScore, playerScore;
 }
 
-//play game -- WORKING
+//play game
 function playGame() {
     for (let round = 0; round < 5; round++) {
         getComputerChoice();
@@ -89,11 +89,11 @@ function playGame() {
         } else if (computerScore > playerScore) {
             alert('You lose the game. =(');
         } else if (computerScore < playerScore) {
-            alert('You win the game! =D')
+            alert('You win the game! =D');
         }
     }
 }
 
 
 //main script
-let game = playGame()
+let game = playGame();
