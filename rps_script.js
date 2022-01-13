@@ -1,44 +1,49 @@
-//rock == 0
-//paper == 1
-//scissors == 2
-
-
 //computer choice -- WORKING
-function computerPlay() {
-    let choice = Math.floor(Math.random() * 3);
-    // console.log(choice)
-    return choice;
+let computerChoice;
+function getComputerChoice() {
+    let computerInput = Math.floor(Math.random() * 3);
+    // console.log(computerInput)
+    switch (computerInput) {
+        case 0:
+            computerChoice = "rock";
+            break;
+        case 1:
+            computerChoice = "paper";
+            break;
+        case 2:
+            computerChoice = "scissors";
+    }
+    console.log(computerChoice)
+    return computerChoice;
 }
-let computerInput = computerPlay();
-switch (computerInput) {
-    case 0:
-        computerChoice = "rock";
-        break;
-    case 1:
-        computerChoice = "paper";
-        break;
-    case 2:
-        computerChoice = "scissors";
-}
-// console.log(computerChoice)
 
-//player selection -- WORKING
+//player selection
 let playerChoice;
-let playerInput = prompt("Rock, Paper, or Scissors?");
-// console.log(playerInput)
-if (playerInput === null) {
-    alert('You\'ve quit the game.');
-} else {
-    playerChoice = playerInput.toLowerCase();
+function getPlayerChoice() {
+    let playerInput;
+    while (!(playerInput === null || playerInput === 'rock' || playerInput === 'paper' || playerInput === 'scissors')) {
+        playerInput = prompt('Rock, Paper, or Scissors?');
+        // console.log(playerInput)
+    }
+    if (playerInput === null) {
+        alert('You\'ve quit the game.');
+        //break out somehow
+    } else {
+        playerChoice = playerInput.toLowerCase();
+        if (!(playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors')) {
+            prompt("Rock, Paper, or Scissors?");
+        }
+    }
+    console.log(playerChoice)
+    return playerChoice;
 }
-// console.log(playerChoice)
 
-//play round
+//play round -- WORKING
 let computerScore = 0;
 let playerScore = 0;
 function playRound(computerSelection, playerSelection) {
     if (computerSelection === playerSelection) {
-        alert('It\'s a tie!');
+        alert('It\'s a tie.');
     } else if (computerSelection === 'rock') {
         if (playerSelection === 'paper') {
             playerScore += 1;
@@ -64,9 +69,27 @@ function playRound(computerSelection, playerSelection) {
             alert('Computer wins this round. =(');
         }
     }
-    // console.log(computerScore)
-    // console.log(playerScore)
+    console.log(computerScore)
+    console.log(playerScore)
+    return computerScore, playerScore;
 }
 
+//play game -- WORKING
+function playGame() {
+    for (let round = 0; round < 5; round++) {
+        getComputerChoice();
+        getPlayerChoice();
+        playRound(computerChoice, playerChoice);
+    }
+    if (computerScore === playerScore) {
+        alert('The game is a tie.');
+    } else if (computerScore > playerScore) {
+        alert('You lose the game. =(');
+    } else if (computerScore < playerScore) {
+        alert('You win the game! =D')
+    }
+}
+
+
 //main script
-let round = playRound(computerChoice, playerChoice);
+let game = playGame()
