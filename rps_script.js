@@ -23,12 +23,10 @@ function getPlayerChoice() {
     let playerInput;
     while (!(playerInput === null || playerInput === 'rock' || playerInput === 'paper' || playerInput === 'scissors')) {
         playerInput = prompt('Rock, Paper, or Scissors?');
-        // console.log(playerInput)
     }
     if (playerInput === null) {
         alert('You\'ve quit the game.');
         return playerChoice = '';
-        //break out somehow
     } else {
         playerChoice = playerInput.toLowerCase();
         if (!(playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors')) {
