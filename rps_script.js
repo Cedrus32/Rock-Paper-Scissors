@@ -2,7 +2,6 @@
 let computerChoice;
 function getComputerChoice() {
     let computerInput = Math.floor(Math.random() * 3);
-    // console.log(computerInput)
     switch (computerInput) {
         case 0:
             computerChoice = "rock";
@@ -13,7 +12,6 @@ function getComputerChoice() {
         case 2:
             computerChoice = "scissors";
     }
-    console.log(computerChoice);
     return computerChoice;
 }
 
@@ -21,7 +19,8 @@ function getComputerChoice() {
 let playerChoice;
 function getPlayerChoice() {
     let playerInput;
-    while (!(playerInput === null || playerInput === 'rock' || playerInput === 'paper' || playerInput === 'scissors')) {
+    while (!(playerInput === null || playerInput === 'rock' ||
+            playerInput === 'paper' || playerInput === 'scissors')) {
         playerInput = prompt('Rock, Paper, or Scissors?');
     }
     if (playerInput === null) {
@@ -29,11 +28,11 @@ function getPlayerChoice() {
         return playerChoice = '';
     } else {
         playerChoice = playerInput.toLowerCase();
-        if (!(playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors')) {
+        if (!(playerChoice === 'rock' || playerChoice === 'paper' ||
+                playerChoice === 'scissors')) {
             prompt("Rock, Paper, or Scissors?");
         }
     }
-    console.log(playerChoice);
     return playerChoice;
 }
 
@@ -68,14 +67,14 @@ function playRound(computerSelection, playerSelection) {
             alert('Computer wins this round. =(');
         }
     }
-    console.log(computerScore);
-    console.log(playerScore);
     return computerScore, playerScore;
 }
 
 //play game
 function playGame() {
-    for (let round = 0; round < 5; round++) {
+    let round;
+    for (round = 0; round < 5; round++) {
+        console.log(round)
         getComputerChoice();
         getPlayerChoice();
         if (playerChoice === '') {
@@ -83,6 +82,7 @@ function playGame() {
         }
         playRound(computerChoice, playerChoice);
     }
+    console.log(round)
     if (round === 5) {
         if (computerScore === playerScore) {
             alert('The game is a tie.');
