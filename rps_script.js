@@ -27,6 +27,7 @@ function getPlayerChoice() {
     }
     if (playerInput === null) {
         alert('You\'ve quit the game.');
+        return playerChoice = '';
         //break out somehow
     } else {
         playerChoice = playerInput.toLowerCase();
@@ -79,14 +80,19 @@ function playGame() {
     for (let round = 0; round < 5; round++) {
         getComputerChoice();
         getPlayerChoice();
+        if (playerChoice === '') {
+            break;
+        }
         playRound(computerChoice, playerChoice);
     }
-    if (computerScore === playerScore) {
-        alert('The game is a tie.');
-    } else if (computerScore > playerScore) {
-        alert('You lose the game. =(');
-    } else if (computerScore < playerScore) {
-        alert('You win the game! =D')
+    if (round === 5) {
+        if (computerScore === playerScore) {
+            alert('The game is a tie.');
+        } else if (computerScore > playerScore) {
+            alert('You lose the game. =(');
+        } else if (computerScore < playerScore) {
+            alert('You win the game! =D')
+        }
     }
 }
 
