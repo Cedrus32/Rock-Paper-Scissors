@@ -1,5 +1,5 @@
-//computer choice
 let computerChoice;
+//get computer choice
 function getComputerChoice() {
     let computerInput = Math.floor(Math.random() * 3);
     switch (computerInput) {
@@ -15,85 +15,83 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-//player selection
-let playerChoice;
-function getPlayerChoice() {
-    let playerInput;
-    while (!(playerInput === null || playerInput === 'rock' ||
-            playerInput === 'paper' || playerInput === 'scissors')) {
-        playerInput = prompt('Rock, Paper, or Scissors?');
-    }
-    if (playerInput === null) {
-        alert('You\'ve quit the game.');
-        return playerChoice = '';
-    } else {
-        playerChoice = playerInput.toLowerCase();
-        if (!(playerChoice === 'rock' || playerChoice === 'paper' ||
-                playerChoice === 'scissors')) {
-            prompt("Rock, Paper, or Scissors?");
-        }
-    }
-    return playerChoice;
-}
-
-//play round
-let computerScore = 0;
-let playerScore = 0;
-function playRound(computerSelection, playerSelection) {
+//compare choices
+function compareChoices(computerSelection, playerSelection) {
     if (computerSelection === playerSelection) {
-        alert('It\'s a tie.');
+        pResults.textContent = 'It\'s a tie.';
     } else if (computerSelection === 'rock') {
         if (playerSelection === 'paper') {
             playerScore += 1;
-            alert('You win this round! =D');
+            pResults.textContent = 'You win this round! =D';
         } else if (playerSelection === 'scissors') {
             computerScore += 1;
-            alert('Computer wins this round. =(');
+            pResults.textContent = 'Computer wins this round. =(';
         }
     } else if (computerSelection === 'paper') {
         if (playerSelection === 'rock') {
             computerScore += 1;
-            alert('Computer wins this round. =(');
+            pResults.textContent = 'Computer wins this round. =(';
         } else if (playerSelection === 'scissors') {
             playerScore += 1;
-            alert('You win this round!');
+            pResults.textContent = 'You win this round! =D';
         }
     } else if (computerSelection === 'scissors') {
         if (playerSelection === 'rock') {
             playerScore += 1;
-            alert('You win this round!');
+            pResults.textContent = 'You win this round! =D';
         } else if (playerSelection === 'paper') {
             computerScore += 1;
-            alert('Computer wins this round. =(');
+            pResults.textContent = 'Computer wins this round. =(';
         }
     }
-    return computerScore, playerScore;
+}
+
+let computerScore = 0;
+let playerScore = 0;
+const pChoices = document.createElement('p');
+const pResults = document.createElement('p');
+const pScore = document.createElement('p');
+//play round
+function playRound(computerSelection, playerSelection) {
+    pChoices.textContent = `You: ${playerSelection}  -- Computer: ${computerSelection}`;
+    divMain.appendChild(pChoices);
+
+    compareChoices(computerChoice, playerChoice);
+
+    pScore.textContent = `You: ${playerScore} -- Computer: ${computerScore}`;
+    divMain.appendChild(pResults);
+    divMain.appendChild(pScore);
+    // return computerScore, playerScore;
 }
 
 //play game
+const gameResult = document.createElement('div');
 function playGame() {
-    let round;
-    for (round = 0; round < 5; round++) {
-        console.log(round)
-        getComputerChoice();
-        getPlayerChoice();
-        if (playerChoice === '') {
-            break;
-        }
+    computerChoice = getComputerChoice();
+    console.log(computerChoice);
+    const btn = document.querySelectorAll('button');
+    btn.forEach(button => button.addEventListener('click', () => {
+        btnID = button.id;
+        playerChoice = btnID;
         playRound(computerChoice, playerChoice);
-    }
-    console.log(round)
-    if (round === 5) {
-        if (computerScore === playerScore) {
-            alert('The game is a tie.');
-        } else if (computerScore > playerScore) {
-            alert('You lose the game. =(');
+    }));
+
+    if (computerScore === 5 || playerScore === 5) {
+        if (computerScore > playerScore) {
+            gameResult.textContent = 'You lost the game. =(';
         } else if (computerScore < playerScore) {
-            alert('You win the game! =D');
+            gameResult.textContent = 'You won the game! =D';
         }
     }
+    divMain.appendChild(gameResult);
 }
 
 
-//main script
-let game = playGame();
+// test script
+// let game = playGame();
+
+
+//event script
+
+const divMain = document.querySelector('div');
+window.addEventListener('load', playGame);

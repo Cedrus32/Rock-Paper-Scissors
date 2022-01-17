@@ -2,3 +2,10 @@ body {
     background-color: black;
     color: darkgray;
 }
+
+div#result {
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+    height: 200px;
+}
