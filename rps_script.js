@@ -1,20 +1,20 @@
-let computerChoice;
-//... get computer choice
-function getComputerChoice() {
-    let computerInput = Math.floor(Math.random() * 3);
-    switch (computerInput) {
-        case 0:
-            computerChoice = "rock";
-            break;
-        case 1:
-            computerChoice = "paper";
-            break;
-        case 2:
-            computerChoice = "scissors";
+const pWinner = document.createElement('p');
+let winner;
+//check scores
+function checkScores(computerScore, playerScore) {
+    if (computerScore === 5 || playerScore === 5) {
+        if (computerScore > playerScore) {
+            pWinner.textContent = 'You lost the game. =(';
+        } else if (computerScore < playerScore) {
+            pWinner.textContent = 'You won the game! =D';
+        };
+        divMain.appendChild(pWinner);
+        return true;
     };
-    return computerChoice;
 }
 
+let computerScore = 0;
+let playerScore = 0;
 //... compare choices
 function compareChoices(computerSelection, playerSelection) {
     if (computerSelection === playerSelection) {
@@ -50,8 +50,6 @@ const divMain = document.querySelector('div');
 const pChoices = document.createElement('p');
 const pResults = document.createElement('p');
 const pScore = document.createElement('p');
-let computerScore = 0;
-let playerScore = 0;
 //... play round
 function playRound(computerSelection, playerSelection) {
     //display choices
@@ -60,28 +58,30 @@ function playRound(computerSelection, playerSelection) {
 
     //compare choices ...
     compareChoices(computerChoice, playerChoice);
-
-    //display scores & results
-    pScore.textContent = `You: ${playerScore} -- Computer: ${computerScore}`;
+    //display results
     divMain.appendChild(pResults);
+
+    //display scores
+    pScore.textContent = `You: ${playerScore} -- Computer: ${computerScore}`;
     divMain.appendChild(pScore);
-    // return computerScore, playerScore;
 }
 
-const pWinner = document.createElement('p');
-//check scores
-function checkScores(computerScore, playerScore) {
-    if (computerScore === 5 || playerScore === 5) {
-        if (computerScore > playerScore) {
-            pWinner.textContent = 'You lost the game. =(';
-        } else if (computerScore < playerScore) {
-            pWinner.textContent = 'You won the game! =D';
-        };
-        divMain.appendChild(pWinner);
-        return true;
+let computerChoice;
+//... get computer choice
+function getComputerChoice() {
+    let computerInput = Math.floor(Math.random() * 3);
+    switch (computerInput) {
+        case 0:
+            computerChoice = "rock";
+            break;
+        case 1:
+            computerChoice = "paper";
+            break;
+        case 2:
+            computerChoice = "scissors";
     };
+    return computerChoice;
 }
-
 
 //play game
 const btn = document.querySelectorAll('button.playerChoice');
@@ -93,20 +93,17 @@ function playGame() {
         //get computer choice ...
         computerChoice = getComputerChoice();
         console.log(computerChoice);
+
         //play round...
         playRound(computerChoice, playerChoice);
+
         //check scores
         let winner = checkScores(computerScore, playerScore);
-        console.log(winner);
-        //TODO: check scores using winner = checkScores()...
+        console.log(winner); // true if someone wins
         //TODO: ...if winner === true, make buttons inactive
     }));
 }
 
 
-// test script
-// let game = playGame();
-
-
 //event script
-window.addEventListener('load', playGame);
+playGame = playGame();
