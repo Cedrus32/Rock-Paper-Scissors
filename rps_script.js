@@ -1,5 +1,5 @@
 let computerChoice;
-//get computer choice
+//... get computer choice
 function getComputerChoice() {
     let computerInput = Math.floor(Math.random() * 3);
     switch (computerInput) {
@@ -11,11 +11,11 @@ function getComputerChoice() {
             break;
         case 2:
             computerChoice = "scissors";
-    }
+    };
     return computerChoice;
 }
 
-//compare choices
+//... compare choices
 function compareChoices(computerSelection, playerSelection) {
     if (computerSelection === playerSelection) {
         pResults.textContent = 'It\'s a tie.';
@@ -26,7 +26,7 @@ function compareChoices(computerSelection, playerSelection) {
         } else if (playerSelection === 'scissors') {
             computerScore += 1;
             pResults.textContent = 'Computer wins this round. =(';
-        }
+        };
     } else if (computerSelection === 'paper') {
         if (playerSelection === 'rock') {
             computerScore += 1;
@@ -34,7 +34,7 @@ function compareChoices(computerSelection, playerSelection) {
         } else if (playerSelection === 'scissors') {
             playerScore += 1;
             pResults.textContent = 'You win this round! =D';
-        }
+        };
     } else if (computerSelection === 'scissors') {
         if (playerSelection === 'rock') {
             playerScore += 1;
@@ -42,48 +42,65 @@ function compareChoices(computerSelection, playerSelection) {
         } else if (playerSelection === 'paper') {
             computerScore += 1;
             pResults.textContent = 'Computer wins this round. =(';
-        }
+        };
     }
 }
 
-let computerScore = 0;
-let playerScore = 0;
+const divMain = document.querySelector('div');
 const pChoices = document.createElement('p');
 const pResults = document.createElement('p');
 const pScore = document.createElement('p');
-//play round
+let computerScore = 0;
+let playerScore = 0;
+//... play round
 function playRound(computerSelection, playerSelection) {
+    //display choices
     pChoices.textContent = `You: ${playerSelection}  -- Computer: ${computerSelection}`;
     divMain.appendChild(pChoices);
 
+    //compare choices ...
     compareChoices(computerChoice, playerChoice);
 
+    //display scores & results
     pScore.textContent = `You: ${playerScore} -- Computer: ${computerScore}`;
     divMain.appendChild(pResults);
     divMain.appendChild(pScore);
     // return computerScore, playerScore;
 }
 
-//play game
-const gameResult = document.createElement('div');
-function playGame() {
-    computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    const btn = document.querySelectorAll('button');
-    btn.forEach(button => button.addEventListener('click', () => {
-        btnID = button.id;
-        playerChoice = btnID;
-        playRound(computerChoice, playerChoice);
-    }));
-
+const pWinner = document.createElement('p');
+//check scores
+function checkScores(computerScore, playerScore) {
     if (computerScore === 5 || playerScore === 5) {
         if (computerScore > playerScore) {
-            gameResult.textContent = 'You lost the game. =(';
+            pWinner.textContent = 'You lost the game. =(';
         } else if (computerScore < playerScore) {
-            gameResult.textContent = 'You won the game! =D';
-        }
-    }
-    divMain.appendChild(gameResult);
+            pWinner.textContent = 'You won the game! =D';
+        };
+        divMain.appendChild(pWinner);
+        return true;
+    };
+}
+
+
+//play game
+const btn = document.querySelectorAll('button.playerChoice');
+function playGame() {
+    btn.forEach(button => button.addEventListener('click', () => {
+        //get player choice
+        btnID = button.id;
+        playerChoice = btnID;
+        //get computer choice ...
+        computerChoice = getComputerChoice();
+        console.log(computerChoice);
+        //play round...
+        playRound(computerChoice, playerChoice);
+        //check scores
+        let winner = checkScores(computerScore, playerScore);
+        console.log(winner);
+        //TODO: check scores using winner = checkScores()...
+        //TODO: ...if winner === true, make buttons inactive
+    }));
 }
 
 
@@ -92,6 +109,4 @@ function playGame() {
 
 
 //event script
-
-const divMain = document.querySelector('div');
 window.addEventListener('load', playGame);
