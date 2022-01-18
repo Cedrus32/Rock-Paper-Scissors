@@ -13,3 +13,24 @@ div#result {
     justify-content: flex-start;
     height: 200px;
 }
+
+.title {
+    font-family: 'Clear_Line', serif, sans-serif;
+    font-size: 100px;
+    font-weight: lighter;
+}
+
+.start-game {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+button.start-game {
+    width: 180px;
+    height: 60px;
+}
+
+@font-face {
+    font-family: Clear_Line; src: url(./fonts/ClearLine.ttf);
+}
