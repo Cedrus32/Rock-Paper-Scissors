@@ -85,6 +85,7 @@ function getComputerChoice() {
 
 //play game
 const btn = document.querySelectorAll('button.playerChoice');
+console.log(btn);
 function playGame() {
     btn.forEach(button => button.addEventListener('click', () => {
         //get player choice
@@ -101,9 +102,12 @@ function playGame() {
         let winner = checkScores(computerScore, playerScore);
         console.log(winner); // true if someone wins
         //TODO: ...if winner === true, make buttons inactive
+        if (winner === true) {
+            playerScore -= playerScore;
+            computerScore -= computerScore;
+        }
     }));
 }
-
 
 //event script
 playGame = playGame();
