@@ -1,6 +1,6 @@
 body {
-    background-color: black;
-    color: darkgray;
+    background-color: #FAE4DC;
+    color: black;
     display:flex;
     flex-flow:column;
     justify-content: flex-start;
@@ -18,17 +18,22 @@ div#result {
     font-family: 'Clear_Line', serif, sans-serif;
     font-size: 100px;
     font-weight: lighter;
+    color: #637973;
 }
 
 .start-game {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 30px;
     font-weight: lighter;
+    color: white;
 }
 
 button.start-game {
     width: 180px;
     height: 60px;
+    background-color: #D79954;
+    border: #936C47 1px solid;
+    border-radius: 15px;
 }
 
 @font-face {
