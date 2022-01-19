@@ -21,10 +21,14 @@ div#result {
     color: #637973;
 }
 
+button {
+    padding: 0px;
+    margin: 0px;
+}
+
 .start-game {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
+    font-family: "Neatly_Printed", "Helvetica", sans-serif;
+    font-size: 45px;
     color: white;
 }
 
@@ -38,4 +42,8 @@ button.start-game {
 
 @font-face {
     font-family: Clear_Line; src: url(./fonts/ClearLine.ttf);
+}
+
+@font-face {
+    font-family: Neatly_Printed; src: url(./fonts/KGNeatlyPrintedSpaced.ttf);
 }
