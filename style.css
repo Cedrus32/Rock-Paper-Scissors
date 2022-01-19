@@ -1,6 +1,5 @@
 body {
     background-color: #FAE4DC;
-    color: black;
     display:flex;
     flex-flow:column;
     justify-content: flex-start;
@@ -30,18 +29,22 @@ button {
     margin: 0px;
 }
 
-.start-game {
+.start {
     font-family: "Neatly_Printed", "Helvetica", sans-serif;
     font-size: 45px;
     color: white;
 }
 
-button.start-game {
+button.start {
     width: 180px;
     height: 60px;
     background-color: #D79954;
     border: #936C47 1px solid;
     border-radius: 15px;
+}
+
+.add-hover {
+    color: black;
 }
 
 @font-face {
