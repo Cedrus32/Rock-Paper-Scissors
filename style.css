@@ -5,6 +5,8 @@ body {
     flex-flow:column;
     justify-content: flex-start;
     align-items: center;
+    padding: 0px;
+    margin: 0px;
 }
 
 div#result {
@@ -19,6 +21,8 @@ div#result {
     font-size: 100px;
     font-weight: lighter;
     color: #637973;
+    padding: 100px 10px;
+    margin: 0px;
 }
 
 button {
