@@ -1,7 +1,7 @@
 function addHover(e) {
     // console.log(e); // MOUSEOVER LOGS
     btn.classList.add('add-hover');
-    // console.log(btn.classList); // HOUSEOVER ADDS .add-hover
+    // console.log(btn.classList); // MOUSEOVER ADDS .add-hover
 }
 
 function removeHover(e) {
@@ -12,6 +12,6 @@ function removeHover(e) {
 
 const btn = document.querySelector('button');
 // console.log(btn); // BTN LOGS
-console.log(btn.classList) // START classList IS ACCURATE
+// console.log(btn.classList) // START classList IS ACCURATE
 btn.addEventListener('mouseover', addHover);
-btn.addEventListener('mouseleave', removeHover); // END classList IS ACCURATE
+btn.addEventListener('mouseleave', removeHover);

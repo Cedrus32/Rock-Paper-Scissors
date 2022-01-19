@@ -1,3 +1,7 @@
+/* ------------ */
+/* MAIN STYLING */
+/* ------------ */
+
 body {
     background-color: #FAE4DC;
     display:flex;
@@ -8,12 +12,9 @@ body {
     margin: 0px;
 }
 
-div#result {
-    display:flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    height: 200px;
-}
+/* ------------- */
+/* INDEX STYLING */
+/* ------------- */
 
 .title {
     font-family: 'Clear_Line', serif, sans-serif;
@@ -25,29 +26,48 @@ div#result {
 }
 
 button {
-    padding: 0px;
     margin: 0px;
-}
-
-.start {
+    padding: 0px;
+    border-radius: 15px;
+    background-color: #D79954;
     font-family: "Neatly_Printed", "Helvetica", sans-serif;
     font-size: 45px;
     color: white;
 }
 
+.start {
+    border: #936C47 1px solid;
+}
+
 button.start {
     width: 180px;
     height: 60px;
-    background-color: #D79954;
-    border: #936C47 1px solid;
-    border-radius: 15px;
+    transition: all 0.1s ease 0.1s;
 }
 
+/* TODO fix text blip at mouseleave transition --> remove .add-hover */
 .add-hover {
-    /* color: black; */
     transform: scale(1.1);
     box-shadow: 0px 10px 10px 1px rgb(147, 108, 71, 0.5);
+    border-width: 1px 1px 2px;
 }
+
+/* ------------ */
+/* GAME STYLING */
+/* ------------ */
+
+div#result {
+    display:flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    height: 200px;
+}
+
+/* transform: rotate(0.5turn); --> for computer images */
+
+/* ------------ */
+/* CUSTOM FONTS */
+/* ------------ */
 
 @font-face {
     font-family: Clear_Line; src: url(./fonts/ClearLine.ttf);
