@@ -101,7 +101,6 @@ function playGame() {
         //check scores
         let winner = checkScores(computerScore, playerScore);
         console.log(winner); // true if someone wins
-        //TODO: ...if winner === true, make buttons inactive
         if (winner === true) {
             playerScore -= playerScore;
             computerScore -= computerScore;

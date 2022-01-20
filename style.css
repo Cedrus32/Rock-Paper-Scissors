@@ -50,17 +50,16 @@ button.playerChoice {
     height: 60px;
 }
 
-/* TODO fix text blip at mouseleave transition --> remove .add-hover */
 .add-hover {
     transform: scale(1.1);
     box-shadow: 0px 10px 10px 1px rgb(147, 108, 71, 0.5);
     border-width: 1px 1px 2px;
 }
 
-/* .add-click {
+.add-click {
     transform: scale(0.9);
     border-width: 1px;
-} */
+}
 
 /* ------------ */
 /* GAME STYLING */
