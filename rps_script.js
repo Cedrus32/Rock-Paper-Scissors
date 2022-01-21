@@ -1,32 +1,28 @@
 const pWinner = document.createElement('p');
 //check scores
 function checkScores(computerScore, playerScore) {
-    if (computerScore === 5 || playerScore === 5) {
-        if (computerScore > playerScore) {
-            pWinner.textContent = 'You lost the game. =(';
-        } else if (computerScore < playerScore) {
-            pWinner.textContent = 'You won the game! =D';
-        };
-        divMain.appendChild(pWinner);
-        return true;
+    if (computerScore === playerScore) {
+        pWinner.textContent = 'You tied with the computer.';
+    } else if (computerScore > playerScore) {
+        pWinner.textContent = 'You lost the game. =(';
+    } else if (computerScore < playerScore) {
+        pWinner.textContent = 'You won the game! =D';
     };
+    divMain.appendChild(pWinner);
 }
 
 let winner;
 // check end of game...
-function checkGame() {
-    //check winner
-    winner = checkScores(computerScore, playerScore);
-    console.log(winner);
+function resetGame(computerScore, playerScore) {
     //reset scores
     playerScore -= playerScore;
     computerScore -= computerScore;
+    //reset round
+    round -= round;
+    console.log(round);
     //remove computer & player images
-    btn.forEach(button => button.addEventListener('click', () => {
-        document.getElementById('computer-main').removeChild(computerBoard);
-        document.getElementById('player-main').removeChild(playerBoard);
-        round -= round;
-    }));
+    document.getElementById('computer-main').removeChild(computerBoard);
+    document.getElementById('player-main').removeChild(playerBoard);
 }
 
 let computerScore = 0;
@@ -90,6 +86,7 @@ const pScore = document.createElement('p');
 let round = 0;
 //... play round
 function playRound(computerSelection, playerSelection) {
+    
     //display choices...
     displayChoices(computerSelection, playerSelection);
     
@@ -131,6 +128,12 @@ const btn = document.querySelectorAll('button.playerChoice');
 console.log(btn);
 function playGame() {
     btn.forEach(button => button.addEventListener('click', () => {
+        //reset at end of game
+        console.log(round);
+        if (round === 5) {
+            resetGame(computerScore, playerScore);
+        }
+
         //get player choice
         btnID = button.id;
         playerChoice = btnID;
@@ -140,12 +143,10 @@ function playGame() {
 
         //play round...
         playRound(computerChoice, playerChoice);
+        console.log(round);
 
-        //check end of game
         if (round === 5) {
-            checkGame();
-            //TODO: when round === 5, on next click, reset computer-/player-main
-            //TODO: and display choice
+            checkScores(computerScore, playerScore);
         }
     }));
 }
