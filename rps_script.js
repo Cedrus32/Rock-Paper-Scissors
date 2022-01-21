@@ -1,5 +1,4 @@
 const pWinner = document.createElement('p');
-let winner;
 //check scores
 function checkScores(computerScore, playerScore) {
     if (computerScore === 5 || playerScore === 5) {
@@ -11,6 +10,23 @@ function checkScores(computerScore, playerScore) {
         divMain.appendChild(pWinner);
         return true;
     };
+}
+
+let winner;
+// check end of game...
+function checkGame() {
+    //check winner
+    winner = checkScores(computerScore, playerScore);
+    console.log(winner);
+    //reset scores
+    playerScore -= playerScore;
+    computerScore -= computerScore;
+    //remove computer & player images
+    btn.forEach(button => button.addEventListener('click', () => {
+        document.getElementById('computer-main').removeChild(computerBoard);
+        document.getElementById('player-main').removeChild(playerBoard);
+        round -= round;
+    }));
 }
 
 let computerScore = 0;
@@ -127,18 +143,9 @@ function playGame() {
 
         //check end of game
         if (round === 5) {
-            //check winner
-            let winner = checkScores(computerScore, playerScore);
-            console.log(winner);
-            //reset scores
-            playerScore -= playerScore;
-            computerScore -= computerScore;
-            //remove computer & player images
-            btn.forEach(button => button.addEventListener('click', () => {
-                document.getElementById('computer-main').removeChild(computerBoard);
-                document.getElementById('player-main').removeChild(playerBoard);
-                round -= round;
-            }));
+            checkGame();
+            //TODO: when round === 5, on next click, reset computer-/player-main
+            //TODO: and display choice
         }
     }));
 }
