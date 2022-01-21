@@ -1,5 +1,5 @@
 /* ------------ */
-/* MAIN STYLING */
+/* GLOBAL STYLING */
 /* ------------ */
 
 body {
@@ -12,18 +12,26 @@ body {
     margin: 0px;
 }
 
-/* ------------- */
-/* INDEX STYLING */
-/* ------------- */
+.main {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 650px;
+}
 
 .title {
     font-family: 'Clear_Line', serif, sans-serif;
     font-size: 100px;
     font-weight: lighter;
     color: #637973;
-    padding: 100px 10px;
+    padding: 50px 10px;
     margin: 0px;
 }
+
+/* ------------- */
+/* INDEX STYLING */
+/* ------------- */
 
 button {
     margin: 0px;
@@ -70,6 +78,46 @@ div#result {
     flex-flow: column;
     justify-content: flex-start;
     height: 200px;
+}
+
+.container {
+    width: inherit;
+    border: 1px dotted #637973;
+    padding: 0px 10px;
+}
+
+#computer-main, #player-main {
+    display: flex;
+    align-items: flex-start;
+    height: 240px;
+}
+
+#player-main {
+    display: flex;
+    align-items: flex-end;
+    height: 240px;
+}
+
+.results {
+    display: flex;
+    justify-content: flex-start;
+    gap: 37.5px;
+    /* width: 650px; */
+}
+
+img {
+    width: 100px;
+    height: auto;
+}
+
+.rotate {
+    transform: rotate(0.5turn);
+}
+
+.choice-buttons {
+    display: flex;
+    gap: 52px;
+    padding-top: 50px;
 }
 
 /* transform: rotate(0.5turn); --> for computer images */

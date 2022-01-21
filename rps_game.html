@@ -9,22 +9,24 @@
     </head>
 
     <body>
-        <h1 class='title'>Rock Paper Scissors</h1>
-        <div class='game-board'>
-            <div class=''>
-                <!-- js creates computer image -->
-            </div>
-            <div class='player'>
-                <!-- js creates computer image -->
-                <div class='choices'>
-                    <button id='rock' class='playerChoice'>rock</button>
-                    <button id='paper' class='playerChoice'>paper</button>
-                    <button id='scissors' class='playerChoice'>scissors</button>
+        <div class='main'>
+            <h1 class='title'>Rock Paper Scissors</h1>
+            <div class='container'>
+                <div id='computer-main'>
+                    <!-- js creates computer image -->
+                </div>
+                <div id='player-main'>
+                    <!-- js creates computer image -->
                 </div>
             </div>
-        </div>
+            <div class='choice-buttons'>
+                <button id='rock' class='playerChoice'>rock</button>
+                <button id='paper' class='playerChoice'>paper</button>
+                <button id='scissors' class='playerChoice'>scissors</button>
+            </div>
 
-        <div id="result"></div>
+            <div id="result"></div>
+        </div>
 
         <script src="./rps_script.js"></script>
     </body>

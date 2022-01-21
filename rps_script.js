@@ -46,13 +46,37 @@ function compareChoices(computerSelection, playerSelection) {
     }
 }
 
+const choiceButtons = document.querySelector('div.choice-buttons')
+const computerBoard = document.createElement('div');
+const playerBoard = document.createElement('div');
+document.getElementById('computer-main').appendChild(computerBoard);
+document.getElementById('player-main').appendChild(playerBoard);
+computerBoard.classList.add('results');
+playerBoard.classList.add('results');
+//... display choices
+function displayChoices(computerSelection, playerSelection) {
+    // display computer choice
+    let computerImg = document.createElement('img');
+    computerImg.src = `./imgs/${computerSelection}.png`;
+    computerImg.classList.add('rotate');
+    computerBoard.appendChild(computerImg);
+
+    // display player choice
+    let playerImg = document.createElement('img');
+    playerImg.src = `./imgs/${playerSelection}.png`;
+    playerBoard.appendChild(playerImg);
+}
+
 const divMain = document.querySelector('div');
 const pChoices = document.createElement('p');
 const pResults = document.createElement('p');
 const pScore = document.createElement('p');
+let round = 0;
 //... play round
 function playRound(computerSelection, playerSelection) {
-    //display choices
+    //display choices...
+    displayChoices(computerSelection, playerSelection);
+    
     pChoices.textContent = `You: ${playerSelection}  -- Computer: ${computerSelection}`;
     divMain.appendChild(pChoices);
 
@@ -64,6 +88,9 @@ function playRound(computerSelection, playerSelection) {
     //display scores
     pScore.textContent = `You: ${playerScore} -- Computer: ${computerScore}`;
     divMain.appendChild(pScore);
+
+    //increase round
+    round++;
 }
 
 let computerChoice;
@@ -98,12 +125,20 @@ function playGame() {
         //play round...
         playRound(computerChoice, playerChoice);
 
-        //check scores
-        let winner = checkScores(computerScore, playerScore);
-        console.log(winner); // true if someone wins
-        if (winner === true) {
+        //check end of game
+        if (round === 5) {
+            //check winner
+            let winner = checkScores(computerScore, playerScore);
+            console.log(winner);
+            //reset scores
             playerScore -= playerScore;
             computerScore -= computerScore;
+            //remove computer & player images
+            btn.forEach(button => button.addEventListener('click', () => {
+                document.getElementById('computer-main').removeChild(computerBoard);
+                document.getElementById('player-main').removeChild(playerBoard);
+                round -= round;
+            }));
         }
     }));
 }
