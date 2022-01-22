@@ -15,8 +15,6 @@ let winner;
 // check end of game...
 function resetBoard() {
     //remove computer & player images
-    //TODO: query all imgs, remove all imgs, leave parentBoard
-    //TODO: check out error after 2 full games
     const imgs = document.querySelectorAll('img');
     console.log(imgs);
     for (let i = 0; i < 5; i++) {
@@ -26,6 +24,12 @@ function resetBoard() {
     for (let i = 5; i < 10; i++) {
         playerMain.removeChild(imgs[i]);
     }
+    //reset scores
+    playerScore -= playerScore;
+    computerScore -= computerScore;
+    //reset round
+    round = 0;
+    console.log(round);
     divMain.removeChild(pWinner);
 }
 
@@ -130,12 +134,6 @@ function playGame() {
         console.log(round);
         if (round === 5) {
             resetBoard(computerScore, playerScore);
-            //reset scores
-            playerScore -= playerScore;
-            computerScore -= computerScore;
-            //reset round
-            round = 0;
-            console.log(round);
         }
 
         //get player choice
