@@ -73,6 +73,7 @@ button.playerChoice {
 /* GAME STYLING */
 /* ------------ */
 
+/* TODO delete later */
 div#result {
     display:flex;
     flex-flow: column;
@@ -88,14 +89,31 @@ div#result {
 
 #computer-main, #player-main {
     display: flex;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     height: 240px;
 }
 
+#computer-main {
+    align-items: flex-start;
+}
+
 #player-main {
-    display: flex;
     align-items: flex-end;
-    height: 240px;
+}
+
+.computer-title, .player-title {
+    font-family: "Neatly_Printed", "Helvetica", sans-serif;
+    font-size: 30px;
+    color: #637973;
+    padding: 0px;
+}
+
+.computer-title {
+    margin: -30px 0px 0px;
+}
+
+.player-title {
+    margin: 0px 0px -30px;
 }
 
 .results {
