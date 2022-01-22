@@ -33,6 +33,13 @@ function resetBoard() {
     divMain.removeChild(pWinner);
 }
 
+const computerTitle = document.querySelector('h2.computer-title');
+const playerTitle = document.querySelector('h2.player-title');
+function displayScores(computerScore, playerScore) {
+    computerTitle.textContent = `computer : ${computerScore}`;
+    playerTitle.textContent = `player : ${playerScore}`;
+}
+
 let computerScore = 0;
 let playerScore = 0;
 //... compare choices
@@ -42,26 +49,26 @@ function compareChoices(computerSelection, playerSelection) {
     } else if (computerSelection === 'rock') {
         if (playerSelection === 'paper') {
             playerScore += 1;
-            pResults.textContent = 'You win this round! =D';
+            playerTitle.textContent = `player : ${playerScore}`;
         } else if (playerSelection === 'scissors') {
             computerScore += 1;
-            pResults.textContent = 'Computer wins this round. =(';
+            computerTitle.textContent = `computer : ${computerScore}`;
         };
     } else if (computerSelection === 'paper') {
         if (playerSelection === 'rock') {
             computerScore += 1;
-            pResults.textContent = 'Computer wins this round. =(';
+            computerTitle.textContent = `computer : ${computerScore}`;
         } else if (playerSelection === 'scissors') {
             playerScore += 1;
-            pResults.textContent = 'You win this round! =D';
+            playerTitle.textContent = `player : ${playerScore}`;
         };
     } else if (computerSelection === 'scissors') {
         if (playerSelection === 'rock') {
             playerScore += 1;
-            pResults.textContent = 'You win this round! =D';
+            playerTitle.textContent = `player : ${playerScore}`;
         } else if (playerSelection === 'paper') {
             computerScore += 1;
-            pResults.textContent = 'Computer wins this round. =(';
+            computerTitle.textContent = `computer : ${computerScore}`;
         };
     }
 }
@@ -92,18 +99,9 @@ function playRound(computerSelection, playerSelection) {
     
     //display choices...
     displayChoices(computerSelection, playerSelection);
-    
-    pChoices.textContent = `You: ${playerSelection}  -- Computer: ${computerSelection}`;
-    divMain.appendChild(pChoices);
 
     //compare choices ...
     compareChoices(computerChoice, playerChoice);
-    //display results
-    divMain.appendChild(pResults);
-
-    //display scores
-    pScore.textContent = `You: ${playerScore} -- Computer: ${computerScore}`;
-    divMain.appendChild(pScore);
 
     //increase round
     round++;
@@ -129,6 +127,9 @@ function getComputerChoice() {
 //play game
 const btn = document.querySelectorAll('button.playerChoice');
 function playGame() {
+    //display scores
+    displayScores(computerScore, playerScore);
+    //TODO create separate function for get player choice
     btn.forEach(button => button.addEventListener('click', () => {
         //reset at end of game
         console.log(round);

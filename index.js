@@ -19,7 +19,7 @@ function addClick(e) {
     btn.classList.add('add-click');
     // redirect link upon transition finish
     btn.addEventListener('transitionend', () => {
-        window.location.href = "./rps_game.html";
+        window.location.href = "./game.html";
     });
 }
 
