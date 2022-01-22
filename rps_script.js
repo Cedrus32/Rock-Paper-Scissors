@@ -13,16 +13,20 @@ function checkScores(computerScore, playerScore) {
 
 let winner;
 // check end of game...
-function resetGame(computerScore, playerScore) {
-    //reset scores
-    playerScore -= playerScore;
-    computerScore -= computerScore;
-    //reset round
-    round -= round;
-    console.log(round);
+function resetBoard() {
     //remove computer & player images
-    document.getElementById('computer-main').removeChild(computerBoard);
-    document.getElementById('player-main').removeChild(playerBoard);
+    //TODO: query all imgs, remove all imgs, leave parentBoard
+    //TODO: check out error after 2 full games
+    const imgs = document.querySelectorAll('img');
+    console.log(imgs);
+    for (let i = 0; i < 5; i++) {
+        computerMain.removeChild(imgs[i]);
+    }
+    console.log(imgs);
+    for (let i = 5; i < 10; i++) {
+        playerMain.removeChild(imgs[i]);
+    }
+    divMain.removeChild(pWinner);
 }
 
 let computerScore = 0;
@@ -58,25 +62,20 @@ function compareChoices(computerSelection, playerSelection) {
     }
 }
 
-const choiceButtons = document.querySelector('div.choice-buttons')
-const computerBoard = document.createElement('div');
-const playerBoard = document.createElement('div');
-document.getElementById('computer-main').appendChild(computerBoard);
-document.getElementById('player-main').appendChild(playerBoard);
-computerBoard.classList.add('results');
-playerBoard.classList.add('results');
+const computerMain = document.querySelector('div#computer-main');
+const playerMain = document.querySelector('div#player-main');
 //... display choices
 function displayChoices(computerSelection, playerSelection) {
     // display computer choice
     let computerImg = document.createElement('img');
     computerImg.src = `./imgs/${computerSelection}.png`;
     computerImg.classList.add('rotate');
-    computerBoard.appendChild(computerImg);
+    computerMain.appendChild(computerImg);
 
     // display player choice
     let playerImg = document.createElement('img');
     playerImg.src = `./imgs/${playerSelection}.png`;
-    playerBoard.appendChild(playerImg);
+    playerMain.appendChild(playerImg);
 }
 
 const divMain = document.querySelector('div');
@@ -125,13 +124,18 @@ function getComputerChoice() {
 
 //play game
 const btn = document.querySelectorAll('button.playerChoice');
-console.log(btn);
 function playGame() {
     btn.forEach(button => button.addEventListener('click', () => {
         //reset at end of game
         console.log(round);
         if (round === 5) {
-            resetGame(computerScore, playerScore);
+            resetBoard(computerScore, playerScore);
+            //reset scores
+            playerScore -= playerScore;
+            computerScore -= computerScore;
+            //reset round
+            round = 0;
+            console.log(round);
         }
 
         //get player choice
