@@ -1,16 +1,18 @@
-const pWinner = document.createElement('p');
+const divWinner = document.createElement('div');
+divWinner.classList.add('winner');
 //check scores
 function checkScores(computerScore, playerScore) {
     if (computerScore === playerScore) {
-        pWinner.textContent = 'You tied with the computer.';
+        divWinner.textContent = 'You tied with the computer.';
     } else if (computerScore > playerScore) {
-        pWinner.textContent = 'You lost the game. =(';
+        divWinner.textContent = 'You lost the game. =(';
     } else if (computerScore < playerScore) {
-        pWinner.textContent = 'You won the game! =D';
+        divWinner.textContent = 'You won the game! =D';
     };
-    divMain.appendChild(pWinner);
+    divMain.appendChild(divWinner);
 }
 
+const divMain = document.querySelector('div.main');
 let winner;
 // check end of game...
 function resetBoard() {
@@ -30,7 +32,7 @@ function resetBoard() {
     //reset round
     round = 0;
     console.log(round);
-    divMain.removeChild(pWinner);
+    divMain.removeChild(divWinner);
 }
 
 const computerTitle = document.querySelector('h2.computer-title');
@@ -44,9 +46,7 @@ let computerScore = 0;
 let playerScore = 0;
 //... compare choices
 function compareChoices(computerSelection, playerSelection) {
-    if (computerSelection === playerSelection) {
-        pResults.textContent = 'It\'s a tie.';
-    } else if (computerSelection === 'rock') {
+    if (computerSelection === 'rock') {
         if (playerSelection === 'paper') {
             playerScore += 1;
             playerTitle.textContent = `player : ${playerScore}`;
@@ -89,10 +89,6 @@ function displayChoices(computerSelection, playerSelection) {
     playerMain.appendChild(playerImg);
 }
 
-const divMain = document.querySelector('div');
-const pChoices = document.createElement('p');
-const pResults = document.createElement('p');
-const pScore = document.createElement('p');
 let round = 0;
 //... play round
 function playRound(computerSelection, playerSelection) {

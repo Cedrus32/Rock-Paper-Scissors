@@ -13,6 +13,8 @@ body {
 }
 
 .main {
+    position: absolute;
+    height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
@@ -38,7 +40,7 @@ button {
     padding: 0px;
     border-radius: 15px;
     background-color: #D79954;
-    font-family: "Neatly_Printed", "Helvetica", sans-serif;
+    font-family: 'Neatly_Printed', 'Helvetica', sans-serif;
     font-size: 45px;
     color: white;
 }
@@ -73,14 +75,6 @@ button.playerChoice {
 /* GAME STYLING */
 /* ------------ */
 
-/* TODO delete later */
-div#result {
-    display:flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    height: 200px;
-}
-
 .container {
     width: inherit;
     border: 1px dotted #637973;
@@ -102,7 +96,7 @@ div#result {
 }
 
 .computer-title, .player-title {
-    font-family: "Neatly_Printed", "Helvetica", sans-serif;
+    font-family: 'Neatly_Printed', 'Helvetica', sans-serif;
     font-size: 30px;
     color: #637973;
     padding: 0px;
@@ -138,7 +132,23 @@ img {
     padding-top: 50px;
 }
 
-/* transform: rotate(0.5turn); --> for computer images */
+.winner {
+    display:flex;
+    flex-flow: column;
+    justify-self: center;
+    align-self: center;
+    height: 50px;
+    padding: 10px 15px;
+    margin: 0px;
+    position: absolute;
+    top: 405px; z-index: 1;
+    border: 1px dotted #284C49;
+    border-radius: 15px;
+    background-color: #637973;
+    font-family: 'Neatly_Printed', 'Helvetica', sans-serif;
+    font-size: 45px;
+    color: white;
+}
 
 /* ------------ */
 /* CUSTOM FONTS */
