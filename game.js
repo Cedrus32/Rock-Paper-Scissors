@@ -13,7 +13,6 @@ function checkScores(computerScore, playerScore) {
 }
 
 const divMain = document.querySelector('div.main');
-let winner;
 // check end of game...
 function resetBoard() {
     //remove computer & player images
@@ -29,9 +28,13 @@ function resetBoard() {
     //reset scores
     playerScore -= playerScore;
     computerScore -= computerScore;
+    displayScores(computerScore, playerScore);
+
     //reset round
     round = 0;
     console.log(round);
+
+    //remove winner
     divMain.removeChild(divWinner);
 }
 
@@ -130,7 +133,7 @@ function playGame() {
         //reset at end of game
         console.log(round);
         if (round === 5) {
-            resetBoard(computerScore, playerScore);
+            resetBoard();
         }
 
         //get player choice
