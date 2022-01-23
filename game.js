@@ -1,6 +1,6 @@
 const divWinner = document.createElement('div');
 divWinner.classList.add('winner');
-//check scores
+//... check scores
 function checkScores(computerScore, playerScore) {
     if (computerScore === playerScore) {
         divWinner.textContent = 'You tied with the computer.';
@@ -13,7 +13,7 @@ function checkScores(computerScore, playerScore) {
 }
 
 const divMain = document.querySelector('div.main');
-// check end of game...
+//... reset board ...
 function resetBoard() {
     //remove computer & player images
     const imgs = document.querySelectorAll('img');
@@ -25,7 +25,8 @@ function resetBoard() {
     for (let i = 5; i < 10; i++) {
         playerMain.removeChild(imgs[i]);
     }
-    //reset scores
+
+    //reset scores ...
     playerScore -= playerScore;
     computerScore -= computerScore;
     displayScores(computerScore, playerScore);
@@ -34,7 +35,7 @@ function resetBoard() {
     round = 0;
     console.log(round);
 
-    //remove winner
+    //remove winner ...
     divMain.removeChild(divWinner);
 }
 
@@ -123,30 +124,40 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-//play game
+let playerChoice;
+//... get player choice
+function getPlayerChoice(button) {
+    let btnID = button.id;
+    playerChoice = btnID;
+    return playerChoice;
+}
+
+//TODO add hover/click animation to rps buttons
+
+//play game ...
 const btn = document.querySelectorAll('button.playerChoice');
 function playGame() {
-    //display scores
+    //display scores ...
     displayScores(computerScore, playerScore);
-    //TODO create separate function for get player choice
+
     btn.forEach(button => button.addEventListener('click', () => {
-        //reset at end of game
+        //reset board ...
         console.log(round);
         if (round === 5) {
             resetBoard();
         }
 
-        //get player choice
-        btnID = button.id;
-        playerChoice = btnID;
+        //get player choice ...
+        playerChoice = getPlayerChoice(button);
+
         //get computer choice ...
         computerChoice = getComputerChoice();
-        console.log(computerChoice);
 
         //play round...
         playRound(computerChoice, playerChoice);
         console.log(round);
 
+        //check scores ...
         if (round === 5) {
             checkScores(computerScore, playerScore);
         }

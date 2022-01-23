@@ -32,5 +32,3 @@ const playLink = document.querySelector('a');
 btn.addEventListener('mouseover', addHover);
 btn.addEventListener('mouseleave', removeHover);
 playLink.addEventListener('click', addClick);
-
-// btn.addEventListener('click', addClick);
