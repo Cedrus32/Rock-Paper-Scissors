@@ -68,7 +68,7 @@ button {
     /* border: 1px solid black; */
 }
 
-.src-link {
+.ty-button{
     color: #bf6f5f;
     font-size: 50px;
     padding: 25px;
@@ -76,9 +76,20 @@ button {
     /* border: 1px solid black; */
 }
 
-/* .src-list {
-    
-} */
+.src-ul {
+    position: absolute;
+    top: 111px;
+    right: 25px;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    text-align: right;
+}
+
+.src-title {
+    padding: 0px;
+    margin: 0px;
+}
 
 /* ------------- */
 /* INDEX STYLING */
