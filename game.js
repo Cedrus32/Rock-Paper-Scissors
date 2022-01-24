@@ -21,11 +21,9 @@ const divMain = document.querySelector('div.main');
 function resetBoard() {
     //remove computer & player images
     const imgs = document.querySelectorAll('img');
-    console.log(imgs);
     for (let i = 0; i < 5; i++) {
         computerMain.removeChild(imgs[i]);
     }
-    console.log(imgs);
     for (let i = 5; i < 10; i++) {
         playerMain.removeChild(imgs[i]);
     }
@@ -37,7 +35,6 @@ function resetBoard() {
 
     //reset round
     round = 0;
-    console.log(round);
 
     //remove winner ...
     divMain.removeChild(divWinner);
@@ -144,7 +141,6 @@ function playGame() {
 
     btnInput.forEach(button => button.addEventListener('click', () => {
         //reset board ...
-        console.log(round);
         if (round === 5) {
             resetBoard();
         }
@@ -157,7 +153,6 @@ function playGame() {
 
         //play round...
         playRound(computerChoice, playerChoice);
-        console.log(round);
 
         //check scores ...
         if (round === 5) {
@@ -170,13 +165,15 @@ function playGame() {
 // BUTTON ANIMATION //
 // ---------------- //
 const btnAnimate = document.querySelectorAll('button');
-//button animation...
+//on hover effect
 btnAnimate.forEach(button => button.addEventListener('mouseover', () => {
     button.classList.add('add-hover');
 }));
+//off hover effect
 btnAnimate.forEach(button => button.addEventListener('mouseleave', () => {
     button.classList.remove('add-hover');
 }));
+//on click effect
 btnAnimate.forEach(button => button.addEventListener('click', () => {
     button.classList.remove('add-hover');
     button.classList.add('add-click');

@@ -31,10 +31,6 @@ body {
     margin: 0px;
 }
 
-/* ------------- */
-/* INDEX STYLING */
-/* ------------- */
-
 button {
     margin: 0px;
     padding: 0px;
@@ -47,21 +43,7 @@ button {
 
 .index-start, .game-start {
     border: #936C47 1px solid;
-}
-
-button.index-start {
-    width: 180px;
-    height: 60px;
     transition: all .01s ease .01s;
-}
-
-button.game-start {
-    width: 180px;
-    height: 60px;
-    transition: all .01s ease .01s;
-}
-
-button.player-choice {
     width: 180px;
     height: 60px;
 }
@@ -75,6 +57,17 @@ button.player-choice {
 .add-click {
     transform: scale(0.9);
     border-width: 1px;
+}
+
+/* ------------- */
+/* INDEX STYLING */
+/* ------------- */
+
+.index-start {
+    border: #936C47 1px solid;
+    transition: all .01s ease .01s;
+    width: 180px;
+    height: 60px;
 }
 
 /* ------------ */
@@ -136,6 +129,13 @@ img {
     display: flex;
     gap: 52px;
     padding-top: 50px;
+}
+
+.game-start {
+    border: #936C47 1px solid;
+    transition: all .01s ease .01s;
+    width: 180px;
+    height: 60px;
 }
 
 .winner {
