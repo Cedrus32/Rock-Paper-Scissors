@@ -62,20 +62,21 @@ button {
 .thank-you {
     display: flex;
     justify-content: flex-end;
-    /* align-items: flex-end; */
     width: 100%;
-    color: #bf6f5f;
-    font-size: 50px;
     padding: 0px;
     margin: 0px;
     /* border: 1px solid black; */
 }
 
-.sources {
+.src-link {
+    color: #bf6f5f;
+    font-size: 50px;
     padding: 25px;
     margin: 0px;
     /* border: 1px solid black; */
 }
+
+.src-list
 
 /* ------------- */
 /* INDEX STYLING */

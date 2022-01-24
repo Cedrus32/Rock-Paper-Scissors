@@ -33,3 +33,13 @@ playLink.addEventListener('click', addClick);
 // SOURCES ANIMATION //
 // ----------------- //
 
+const thankYou = document.querySelector('div.thank-you');
+const srcList = document.createElement('div');
+function genSources(e) {
+    // console.log(e);
+    thankYou.appendChild(srcList);
+    srcList.textContent = 'source list';
+}
+
+const srcLink = document.querySelector('p.src-link');
+srcLink.addEventListener('click', genSources);

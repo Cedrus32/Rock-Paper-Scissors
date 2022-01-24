@@ -1,3 +1,3 @@
 # odin-rock-paper-scissors
 
-Currently working on game page
+Currently adding thank-you button
