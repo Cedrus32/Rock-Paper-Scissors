@@ -1,3 +1,7 @@
+// ---------------- //
+// BUTTON ANIMATION //
+// ---------------- //
+
 function addHover(e) {
     btn.classList.add('add-hover');
 }
@@ -24,3 +28,8 @@ const playLink = document.querySelector('a');
 btn.addEventListener('mouseover', addHover);
 btn.addEventListener('mouseleave', removeHover);
 playLink.addEventListener('click', addClick);
+
+// ----------------- //
+// SOURCES ANIMATION //
+// ----------------- //
+

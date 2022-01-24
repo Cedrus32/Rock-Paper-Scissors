@@ -164,6 +164,7 @@ function playGame() {
 // ---------------- //
 // BUTTON ANIMATION //
 // ---------------- //
+
 const btnAnimate = document.querySelectorAll('button');
 //on hover effect
 btnAnimate.forEach(button => button.addEventListener('mouseover', () => {
@@ -185,4 +186,5 @@ btnAnimate.forEach(button => button.addEventListener('click', () => {
 // --------- //
 // PLAY GAME //
 // --------- //
+
 playGame = playGame();

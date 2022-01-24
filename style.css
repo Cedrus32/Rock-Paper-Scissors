@@ -1,6 +1,6 @@
-/* ------------ */
+/* -------------- */
 /* GLOBAL STYLING */
-/* ------------ */
+/* -------------- */
 
 body {
     background-color: #FAE4DC;
@@ -57,6 +57,24 @@ button {
 .add-click {
     transform: scale(0.9);
     border-width: 1px;
+}
+
+.thank-you {
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: flex-end; */
+    width: 100%;
+    color: #bf6f5f;
+    font-size: 50px;
+    padding: 0px;
+    margin: 0px;
+    /* border: 1px solid black; */
+}
+
+.sources {
+    padding: 25px;
+    margin: 0px;
+    /* border: 1px solid black; */
 }
 
 /* ------------- */
