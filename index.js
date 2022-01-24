@@ -34,9 +34,19 @@ playLink.addEventListener('click', addClick);
 // ----------------- //
 
 const thankYou = document.querySelector('div.thank-you');
-const srcList = document.createElement('div');
+let links = ['',
+        '<a href="">Cat Paw Images</a>',
+        '',
+        '<a href="">Clear Line Font</a>',
+        '<a href="">KG Neatly Printed Font</a>',
+        '',
+        '<a href="">Terra-Cotta Instagram Highlight Colors</a>']
 function genSources(e) {
     // console.log(e);
+    const srcList = document.createElement('div');
+    const srcUL = document.createElement('ul');
+    const srcLI = document.createElement('li');
+    srcUL.textContent = ''
     thankYou.appendChild(srcList);
     srcList.textContent = 'source list';
 }
