@@ -1,3 +1,7 @@
+// ----------- //
+// GAME SCRIPT //
+// ----------- //
+
 const divWinner = document.createElement('div');
 divWinner.classList.add('winner');
 //... check scores
@@ -132,15 +136,13 @@ function getPlayerChoice(button) {
     return playerChoice;
 }
 
-//TODO add hover/click animation to rps buttons
-
+const btnInput = document.querySelectorAll('button.player-choice');
 //play game ...
-const btn = document.querySelectorAll('button.playerChoice');
 function playGame() {
     //display scores ...
     displayScores(computerScore, playerScore);
 
-    btn.forEach(button => button.addEventListener('click', () => {
+    btnInput.forEach(button => button.addEventListener('click', () => {
         //reset board ...
         console.log(round);
         if (round === 5) {
@@ -164,5 +166,26 @@ function playGame() {
     }));
 }
 
-//event script
+// ---------------- //
+// BUTTON ANIMATION //
+// ---------------- //
+const btnAnimate = document.querySelectorAll('button');
+//button animation...
+btnAnimate.forEach(button => button.addEventListener('mouseover', () => {
+    button.classList.add('add-hover');
+}));
+btnAnimate.forEach(button => button.addEventListener('mouseleave', () => {
+    button.classList.remove('add-hover');
+}));
+btnAnimate.forEach(button => button.addEventListener('click', () => {
+    button.classList.remove('add-hover');
+    button.classList.add('add-click');
+    button.addEventListener('transitionend', () => {
+        button.classList.remove('add-click');
+    });
+}));
+
+// --------- //
+// PLAY GAME //
+// --------- //
 playGame = playGame();

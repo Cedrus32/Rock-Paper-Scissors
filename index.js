@@ -18,12 +18,11 @@ function addClick(e) {
     btn.classList.remove('add-hover');
     btn.classList.add('add-click');
     // redirect link upon transition finish
-    btn.addEventListener('transitionend', () => {
+    setTimeout(() => {
+        btn.classList.remove('add-click');
         window.location.href = "./game.html";
-    });
+    }, 100);
 }
-
-
 
 const btn = document.querySelector('button');
 const playLink = document.querySelector('a');
