@@ -183,6 +183,18 @@ btnAnimate.forEach(button => button.addEventListener('click', () => {
     });
 }));
 
+// ------------------- //
+// THANK YOU ANIMATION //
+// ------------------- //
+
+function showSrcList(e) {
+    tyContainer.classList.toggle('hide');
+}
+
+const tyButton = document.querySelector('p.ty-button');
+const tyContainer = document.querySelector('div.ty-container');
+tyButton.addEventListener('click', showSrcList);
+
 // --------- //
 // PLAY GAME //
 // --------- //

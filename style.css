@@ -54,6 +54,14 @@ button {
     border-width: 1px;
 }
 
+/* ----------------- */
+/* THANK YOU STYLING */
+/* ----------------- */
+
+.hide {
+    clip: rect(0 0 0 0);
+}
+
 .thank-you {
     display: flex;
     justify-content: flex-end;
@@ -61,22 +69,20 @@ button {
     padding: 0px; margin: 0px;
 }
 
-/* .hide {
-    clip: rect(0 0 0 0);
-} */
+.ty-button{
+    color: #EA9F8B;
+    font-size: 50px;
+    padding: 30px; margin: 0px;
+    z-index: 2;
+}
 
 .ty-container {
     position: absolute;
-    top: 111px; right: 25px;
+    top: 15px; right: 15px; z-index: 1;
+    background-color: rgb(250, 228, 220, 0.75);
     border: 1px dotted #637973;
     border-radius: 15px;
-    padding: 15px;
-}
-
-.ty-button{
-    color: #bf6f5f;
-    font-size: 50px;
-    padding: 25px; margin: 0px;
+    padding: 75px 15px 15px;
 }
 
 .src-ul {
@@ -85,27 +91,36 @@ button {
     text-align: right;
 }
 
+.spacer {
+    height: 15px;
+}
+
 .src-title {
-    padding: 0px; margin: 0px;
-    font-family: 'Clear_Line', serif, sans-serif;
+    padding: 0px 0px 5px 0px;; margin: 0px;
+    font-family: 'Clear_Line', 'Helvetica', sans-serif;
+    color: #637973;
     font-size: 40px;
     font-weight: lighter;
 }
 
-.src-link {
+a.src-link {
     font-family: 'Neatly_Printed', 'Helvetica', sans-serif;
     font-size: 20px;
+    text-decoration: none;
+    color: #D79954;
 }
+
+a:hover {
+    text-decoration: underline dotted 1px;
+    text-decoration-skip-ink: all;
+}
+
 
 /* ------------- */
 /* INDEX STYLING */
 /* ------------- */
 
-.index-start {
-    border: #936C47 1px solid;
-    transition: all .01s ease .01s;
-    height: 60px; width: 180px;
-}
+
 
 /* ------------ */
 /* GAME STYLING */
