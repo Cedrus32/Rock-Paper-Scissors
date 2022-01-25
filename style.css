@@ -8,18 +8,16 @@ body {
     flex-flow:column;
     justify-content: flex-start;
     align-items: center;
-    padding: 0px;
-    margin: 0px;
+    padding: 0px; margin: 0px;
 }
 
 .main {
     position: absolute;
-    height: 100%;
+    height: 100%; width: 650px;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
-    width: 650px;
 }
 
 .title {
@@ -27,13 +25,11 @@ body {
     font-size: 100px;
     font-weight: lighter;
     color: #637973;
-    padding: 50px 10px;
-    margin: 0px;
+    padding: 50px 10px; margin: 0px;
 }
 
 button {
-    margin: 0px;
-    padding: 0px;
+    padding: 0px; margin: 0px;
     border-radius: 15px;
     background-color: #D79954;
     font-family: 'Neatly_Printed', 'Helvetica', sans-serif;
@@ -44,8 +40,7 @@ button {
 .index-start, .game-start {
     border: #936C47 1px solid;
     transition: all .01s ease .01s;
-    width: 180px;
-    height: 60px;
+    width: 180px; height: 60px;
 }
 
 .add-hover {
@@ -63,32 +58,43 @@ button {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    padding: 0px;
-    margin: 0px;
-    /* border: 1px solid black; */
+    padding: 0px; margin: 0px;
+}
+
+/* .hide {
+    clip: rect(0 0 0 0);
+} */
+
+.ty-container {
+    position: absolute;
+    top: 111px; right: 25px;
+    border: 1px dotted #637973;
+    border-radius: 15px;
+    padding: 15px;
 }
 
 .ty-button{
     color: #bf6f5f;
     font-size: 50px;
-    padding: 25px;
-    margin: 0px;
-    /* border: 1px solid black; */
+    padding: 25px; margin: 0px;
 }
 
 .src-ul {
-    position: absolute;
-    top: 111px;
-    right: 25px;
     list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+    padding: 0px; margin: 0px;
     text-align: right;
 }
 
 .src-title {
-    padding: 0px;
-    margin: 0px;
+    padding: 0px; margin: 0px;
+    font-family: 'Clear_Line', serif, sans-serif;
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+.src-link {
+    font-family: 'Neatly_Printed', 'Helvetica', sans-serif;
+    font-size: 20px;
 }
 
 /* ------------- */
@@ -98,8 +104,7 @@ button {
 .index-start {
     border: #936C47 1px solid;
     transition: all .01s ease .01s;
-    width: 180px;
-    height: 60px;
+    height: 60px; width: 180px;
 }
 
 /* ------------ */
@@ -109,6 +114,7 @@ button {
 .container {
     width: inherit;
     border: 1px dotted #637973;
+    border-radius: 15px;
     padding: 0px 10px;
 }
 
@@ -149,8 +155,7 @@ button {
 }
 
 img {
-    width: 100px;
-    height: auto;
+    height: auto; width: 100px;
 }
 
 .rotate {
@@ -166,8 +171,7 @@ img {
 .game-start {
     border: #936C47 1px solid;
     transition: all .01s ease .01s;
-    width: 180px;
-    height: 60px;
+    height: 60px; width: 180px;
 }
 
 .winner {
@@ -176,8 +180,7 @@ img {
     justify-self: center;
     align-self: center;
     height: 50px;
-    padding: 10px 15px;
-    margin: 0px;
+    padding: 10px 15px; margin: 0px;
     position: absolute;
     top: 405px; z-index: 1;
     border: 1px dotted #284C49;
