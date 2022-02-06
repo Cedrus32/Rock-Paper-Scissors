@@ -2,4 +2,4 @@
 
 Completed Through The Odin Project
 
-https://cedrus32.github.io/odin-rock-paper-scissors/
+https://cedrus32.github.io/Rock-Paper-Scissors/
